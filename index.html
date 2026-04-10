@@ -10,10 +10,10 @@
 <style>
 
 :root{
-  --green:#1f3b2f;
-  --green2:#2c4a3d;
+  --green:#2f5d50;
+  --green2:#3e7a66;
   --tan:#d8c3a5;
-  --black:#0e0e0e;
+  --black:#1a1a1a;
   --white:#ffffff;
 }
 
@@ -25,35 +25,39 @@
 
 body{
   font-family:Inter, sans-serif;
-  background:var(--green);
+  background:linear-gradient(180deg,#2f5d50,#24483f);
   color:white;
-  overflow-x:hidden;
 }
 
 /* GLASS NAV */
 nav{
   position:fixed;
-  top:0;
-  width:100%;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,0.1);
+  padding:16px 22px;
+
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:999px;
+
   z-index:1000;
 }
 
 .logo{
   font-weight:600;
-  color:white;
+  font-family:"Playfair Display", serif;
 }
 
 nav a{
   color:white;
   text-decoration:none;
-  margin:0 10px;
+  margin:0 8px;
   font-size:14px;
 }
 
@@ -72,8 +76,8 @@ nav a{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:0 20px;
-  background:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952') center/cover no-repeat;
+
+  background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
   position:relative;
 }
 
@@ -81,23 +85,24 @@ nav a{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(15,30,20,0.65);
+  background:rgba(20,40,30,0.65);
 }
 
 .hero-content{
   position:relative;
-  max-width:800px;
   z-index:2;
+  max-width:800px;
+  padding:20px;
 }
 
 .hero h1{
   font-family:"Playfair Display", serif;
-  font-size:48px;
+  font-size:46px;
 }
 
 .hero p{
   margin-top:15px;
-  color:#eee;
+  opacity:0.9;
 }
 
 .hero button{
@@ -132,30 +137,50 @@ section{
   background:rgba(255,255,255,0.08);
   padding:20px;
   border-radius:16px;
-  border:1px solid rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.12);
 }
 
 .card h3{
   color:var(--tan);
+  margin-bottom:8px;
 }
 
-/* BEFORE AFTER SLIDER */
-.slider-wrap{
-  max-width:700px;
+/* BEFORE AFTER */
+.toggle{
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.toggle button{
+  padding:10px 18px;
+  border:none;
+  border-radius:999px;
+  margin:0 5px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.active{
+  background:var(--tan);
+  color:black;
+}
+
+.inactive{
+  background:rgba(255,255,255,0.15);
+  color:white;
+}
+
+.ba-box{
+  max-width:750px;
   margin:auto;
-  position:relative;
+  border-radius:18px;
   overflow:hidden;
-  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.15);
 }
 
-.slider-wrap img{
+.ba-box img{
   width:100%;
   display:block;
-}
-
-.range{
-  width:100%;
-  margin-top:10px;
 }
 
 /* ABOUT */
@@ -166,7 +191,7 @@ section{
   text-align:center;
 }
 
-/* CONTACT */
+/* FORM */
 form{
   max-width:500px;
   margin:auto;
@@ -176,8 +201,8 @@ form{
 
 input,textarea{
   padding:12px;
-  border-radius:10px;
   border:none;
+  border-radius:10px;
   outline:none;
 }
 
@@ -185,17 +210,16 @@ button{
   background:var(--tan);
   color:black;
   padding:12px;
-  border-radius:999px;
   border:none;
+  border-radius:999px;
   font-weight:600;
-  cursor:pointer;
 }
 
 /* FLOAT CALL */
 .call{
   position:fixed;
-  bottom:20px;
-  right:20px;
+  bottom:18px;
+  right:18px;
   background:var(--tan);
   color:black;
   padding:14px 16px;
@@ -213,20 +237,21 @@ button{
 <!-- NAV -->
 <nav>
   <div class="logo">Kozied Up Cleaning</div>
+
   <div>
     <a href="#services">Services</a>
-    <a href="#before">Before/After</a>
+    <a href="#before">Results</a>
     <a href="#contact">Quote</a>
-    <a class="cta" href="#contact">Call Now</a>
+    <a class="cta" href="#contact">Call</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-content">
-    <h1>Luxury-Level Cleaning in Oklahoma City</h1>
-    <p>Residential, Deep Cleaning & Commercial services designed to make your space feel brand new.</p>
-    <button onclick="document.getElementById('contact').scrollIntoView()">Request Quote</button>
+    <h1>Clean, Calm & Comfortable Homes in Oklahoma City</h1>
+    <p>Residential, deep cleaning, and commercial services built to keep your space fresh and stress-free.</p>
+    <button onclick="document.getElementById('contact').scrollIntoView()">Get Free Quote</button>
   </div>
 </div>
 
@@ -239,7 +264,7 @@ button{
 
       <div class="card">
         <h3>Residential Cleaning</h3>
-        <p>Regular home cleaning to keep your space fresh, organized, and stress-free every week.</p>
+        <p>Weekly or bi-weekly home cleaning to keep your space consistently fresh and organized.</p>
       </div>
 
       <div class="card">
@@ -248,8 +273,8 @@ button{
       </div>
 
       <div class="card">
-        <h3>Commercial / Office</h3>
-        <p>Professional cleaning for offices and commercial spaces to maintain a clean work environment.</p>
+        <h3>Commercial Cleaning</h3>
+        <p>Reliable cleaning for offices and business spaces to maintain a professional environment.</p>
       </div>
 
     </div>
@@ -259,12 +284,18 @@ button{
 <!-- BEFORE AFTER -->
 <section id="before">
   <div class="container">
-    <h2 style="text-align:center;margin-bottom:30px;">Before & After</h2>
 
-    <div class="slider-wrap">
-      <img id="img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" />
-      <input class="range" type="range" min="1" max="2" value="1" oninput="swap(this.value)">
+    <h2 style="text-align:center;margin-bottom:20px;">Real Cleaning Results</h2>
+
+    <div class="toggle">
+      <button class="active" onclick="showBefore()">Before</button>
+      <button class="inactive" onclick="showAfter()">After</button>
     </div>
+
+    <div class="ba-box">
+      <img id="baImg" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+    </div>
+
   </div>
 </section>
 
@@ -273,7 +304,7 @@ button{
   <div class="container about">
     <h2>About Us</h2>
     <p>
-      Kozied Up Cleaning is a locally owned Oklahoma City cleaning company focused on reliability, detail, and consistent high-quality results for homes and businesses.
+      Kozied Up Cleaning is a locally owned Oklahoma City cleaning company focused on trust, detail, and high-quality results for homes and businesses.
     </p>
   </div>
 </section>
@@ -299,14 +330,14 @@ button{
 <a class="call" href="tel:4050000000">Call Now</a>
 
 <script>
-function swap(val){
-  const img = document.getElementById("img");
+function showBefore(){
+  document.getElementById("baImg").src =
+  "https://images.unsplash.com/photo-1581578731548-c64695cc6952";
+}
 
-  if(val == 1){
-    img.src = "https://images.unsplash.com/photo-1581578731548-c64695cc6952";
-  } else {
-    img.src = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c";
-  }
+function showAfter(){
+  document.getElementById("baImg").src =
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c";
 }
 </script>
 
