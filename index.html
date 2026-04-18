@@ -5,214 +5,234 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kozied Up Cleaning</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-
 <style>
-
-/* =========================
-   THEME SYSTEM
-========================= */
-
-:root{
-  --bg:#1f3a2f;
-  --overlay:rgba(15,30,24,0.75);
-  --text:#ffffff;
-  --btn:#d8c3a5;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-body.light{
-  --bg:#eef3ec;
-  --overlay:rgba(255,255,255,0.55);
-  --text:#1a1a1a;
+body {
+  background: #f7f6f3;
+  color: #222;
 }
 
-/* ========================= */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
 }
 
-body{
-  font-family:Inter,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:0.3s ease;
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }
 
-/* =========================
-   NAV
-========================= */
-
-nav{
-  position:fixed;
-  top:15px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
+/* HERO */
+.hero {
+  height: 90vh;
+  background: url('your-hero-image.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
 }
 
-.logo img{
-  width:50px;
-  border-radius:8px;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
 }
 
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:12px;
+.hero-content {
+  position: relative;
+  max-width: 600px;
 }
 
-/* TOGGLE BUTTON */
-.toggle{
-  width:44px;
-  height:44px;
-  border-radius:12px;
-  background:rgba(255,255,255,0.15);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-size:18px;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
 }
 
-.menu{
-  font-size:22px;
+.hero button {
+  padding: 12px 20px;
+  border: none;
+  background: #b7c4a3; /* soft sage */
+  color: black;
+  cursor: pointer;
+  margin-top: 15px;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
+/* SECTIONS */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-/* LIGHT MODE IMAGE */
-body.light .hero{
-  background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952") center/cover no-repeat;
+h2 {
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-/* DARK MODE IMAGE */
-body:not(.light) .hero{
-  background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover no-repeat;
+/* SERVICES */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
 }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:var(--overlay);
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:800px;
-  padding:20px;
+/* BEFORE AFTER */
+.ba {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.sparkle{
-  font-size:24px;
-  margin-bottom:10px;
+.ba div {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
 }
 
-h1{
-  font-family:"Playfair Display",serif;
-  font-size:42px;
+.ba img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-p{
-  margin-top:15px;
-  opacity:0.9;
+/* TESTIMONIALS */
+.testimonial {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
-/* BUTTONS */
-
-.btn{
-  display:block;
-  width:100%;
-  max-width:320px;
-  margin:12px auto;
-  padding:14px;
-  border-radius:16px;
-  font-weight:500;
-  text-decoration:none;
-  transition:0.2s;
+/* CONTACT */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.primary{
-  background:var(--btn);
-  color:black;
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
-.secondary{
-  border:1px solid rgba(255,255,255,0.5);
-  color:var(--text);
-  background:transparent;
+button {
+  background: #b7c4a3;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
 }
 
-.btn:hover{
-  transform:scale(1.03);
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #222;
+  color: white;
 }
-
 </style>
+
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="logo">
-    <img src="images/logo.png" alt="logo">
-  </div>
-
-  <div class="nav-right">
-    <div class="toggle" onclick="toggleMode()" id="themeToggle">☾</div>
-    <div class="menu">☰</div>
+  <div><b>Kozied Up Cleaning</b></div>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-content">
-
-    <div class="sparkle">✦</div>
-
-    <h1>Kozied Up Cleaning</h1>
-
-    <p>Reliable Residential & Commercial Cleaning in Edmond, OK</p>
-
-    <a href="#contact" class="btn primary">Get Instant Quote</a>
-    <a href="#contact" class="btn secondary">Book a Cleaning</a>
-
+    <h1>Clean Homes. Peace of Mind.</h1>
+    <p>Reliable, detailed, and affordable cleaning services.</p>
+    <button>Book a Clean</button>
   </div>
 </div>
 
-<!-- SCRIPT -->
-<script>
-function toggleMode(){
-  document.body.classList.toggle("light");
+<!-- SERVICES -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card">🏠 Residential Cleaning</div>
+    <div class="card">🧼 Deep Cleaning</div>
+    <div class="card">🚚 Move In/Out Cleaning</div>
+    <div class="card">🏢 Commercial Cleaning</div>
+  </div>
+</section>
 
-  const toggle = document.getElementById("themeToggle");
+<!-- ABOUT -->
+<section id="about">
+  <h2>Why Choose Us</h2>
+  <p style="text-align:center; max-width:700px; margin:auto;">
+    We deliver consistent, high-quality cleaning with eco-friendly products and trusted professionals.
+  </p>
+</section>
 
-  if(document.body.classList.contains("light")){
-    toggle.innerHTML = "☀";
-  } else {
-    toggle.innerHTML = "☾";
-  }
-}
-</script>
+<!-- BEFORE AFTER -->
+<section id="work">
+  <h2>Before & After</h2>
+  <div class="ba">
+    <div>
+      <img src="before.jpg">
+      <p>Before</p>
+    </div>
+    <div>
+      <img src="after.jpg">
+      <p>After</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <h2>Testimonials</h2>
+  <div class="testimonial">“Best cleaning service I’ve used.”</div>
+  <div class="testimonial">“Super professional and fast.”</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <form>
+    <input placeholder="Name">
+    <input placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Kozied Up Cleaning
+</footer>
 
 </body>
 </html>
